@@ -21,11 +21,17 @@ describe LinkedList do
   end
 
   describe '#prepend' do
-    it 'adds an element to the beginnning of the list'
+    it 'adds an element to the beginnning of the list' do
+      list.prepend('Louis')
+      expect(list.head.data).to eql('Louis')
+      expect(list.head.next_node.data).to eql('Bryan')
+    end
   end
 
   describe '#size' do
-    it 'returns the size (length) of the linked list'
+    it 'returns the size (length) of the linked list' do
+      expect(list.size).to eql(3)
+    end
   end
 
   describe '#head' do
