@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 ##
 # This class represents a standard linked list
-
 class LinkedList
   require_relative 'node'
   attr_reader :head, :tail
@@ -48,4 +49,16 @@ class LinkedList
     count
   end
 
+  def at(index)
+    return nil if index.negative?
+
+    index = size + index if index.negative?
+    counter = 0
+    pointer = @head
+    until counter == index
+      pointer = pointer.next_node
+      counter += 1
+    end
+    pointer.data
+  end
 end
