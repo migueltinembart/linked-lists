@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # This class represents a data node which points to another data structure
 class Node
