@@ -16,3 +16,7 @@ Ruby doesnt implement it by itself, because arrays in ruby do not have an explic
 |-------|-----------|
 |append(value)|appends element to end of list|
 |prepend(value)| adds element at the beginning of the list|
+|size|returns the size of the linked list|
+|head|returns the first element of the list|
+|tail|returns the last element of the list|
+|at(index)|returns the element at the given index of the list (Starts at 0)|
