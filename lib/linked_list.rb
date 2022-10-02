@@ -95,12 +95,11 @@ class LinkedList
     end
     matched
   end
-  
+
   ##
   # returns a list of elements in order of the list
   def to_s
     string = ''
-    count = 0
     pointer = @head
     until pointer.nil?
       string += "( #{pointer.data} )"
