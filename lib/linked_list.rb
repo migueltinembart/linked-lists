@@ -81,4 +81,33 @@ class LinkedList
     end
     contains
   end
+
+  ##
+  # returns index of the element passed in to function
+  def find(value)
+    pointer = @head
+    matched = nil
+    index = 0
+    until pointer.nil?
+      matched = index if pointer.data == value
+      index += 1
+      pointer = pointer.next_node
+    end
+    matched
+  end
+  
+  ##
+  # returns a list of elements in order of the list
+  def to_s
+    string = ''
+    count = 0
+    pointer = @head
+    until pointer.nil?
+      string += "( #{pointer.data} )"
+      string += ' => ' unless pointer.nil?
+      string += '( null )' if pointer.next_node.nil?
+      pointer = pointer.next_node
+    end
+    string
+  end
 end
