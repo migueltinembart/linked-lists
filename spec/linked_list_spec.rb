@@ -71,19 +71,39 @@ describe LinkedList do
     list.append(5)
     list.append(6)
     it 'returns the node at the given index' do
-      expect(list.at(0)).to eql(0)
+      expect(list.at(0).data).to eql(0)
     end
 
-    it 'returns nil if index > -1' do
-      expect(list.at(-2)).to eql(5)
+    it 'goes backwards in to the list' do
+      expect(list.at(-2).data).to eql(5)
     end
   end
 
   describe '#pop' do
-    it 'removes the last node inside of the list'
+    list = LinkedList.new
+    list.append(0)
+    list.append(1)
+    list.append(2)
+    list.append(3)
+    list.append(4)
+    list.append(5)
+    it 'removes the last node inside of the list' do
+      expect(list.pop.data).to eql(5)
+    end
   end
 
   describe '#contains?' do
-    it
+    it 'returns true if element passed is inside list' do
+      list = LinkedList.new
+      list.append(0)
+      list.append(1)
+      list.append(2)
+      list.append(0)
+      list.append(4)
+      list.append(5)
+      list.append(6)
+      expect(list.contains?(4)).to eql(true)
+      expect(list.contains?(9)).not_to eql(true)
+    end
   end
 end
