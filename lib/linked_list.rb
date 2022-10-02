@@ -49,9 +49,9 @@ class LinkedList
     count
   end
 
+  ##
+  # get the node at the index of the list
   def at(index)
-    return nil if index.negative?
-
     index = size + index if index.negative?
     counter = 0
     pointer = @head
@@ -59,6 +59,14 @@ class LinkedList
       pointer = pointer.next_node
       counter += 1
     end
-    pointer.data
+    pointer
+  end
+
+  ##
+  # removes the last element of the list
+  def pop
+    item = at(-1)
+    at(-2).next_node = nil
+    item
   end
 end
