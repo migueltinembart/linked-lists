@@ -137,5 +137,33 @@ describe LinkedList do
     end
   end
 
-  
+  describe '#insert_at(value, index)' do
+    list = LinkedList.new
+    list.append(0)
+    list.append(2)
+    list.insert_at(1, 1)
+    it 'inserts a new node in to the list' do
+      expect(list.at(1).data).to eql(1)
+      expect(list.to_s).to eql('( 0 ) => ( 1 ) => ( 2 ) => ( null )')
+    end
+
+    it 'inserts a new node at the end of the list' do
+      list.insert_at(5, 2)
+      expect(list.at(2).data).to eql(5)
+      expect(list.to_s).to eql('( 0 ) => ( 1 ) => ( 5 ) => ( 2 ) => ( null )')
+    end
+  end
+
+  describe '#remove_at' do
+    list = LinkedList.new
+    list.append(0)
+    list.append(1)
+    list.append(2)
+    list.append(3)
+    list.append(4)
+    list.append(5)
+    it 'returns the item removed at index' do
+      expect(list.remove_at(2)).to eql(2)
+    end
+  end
 end
