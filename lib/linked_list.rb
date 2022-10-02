@@ -69,4 +69,16 @@ class LinkedList
     at(-2).next_node = nil
     item
   end
+
+  ##
+  # returns true if value is contained inside of list nodes
+  def contains?(value)
+    pointer = @head
+    contains = false
+    until pointer.nil?
+      contains = true if pointer.data == value
+      pointer = pointer.next_node
+    end
+    contains
+  end
 end
