@@ -106,4 +106,36 @@ describe LinkedList do
       expect(list.contains?(9)).not_to eql(true)
     end
   end
+
+  describe '#find(value)' do
+    list = LinkedList.new
+    list.append('Noel') #=> 0
+    list.append('Bert') #=> 1
+    list.append('Roger') #=> 2
+    list.append('Lisa') #=> 3
+    it 'returns the index of the element passed' do
+      expect(list.find('Lisa')).to eql(3)
+      expect(list.find('Marco')).to eql(nil)
+      expect(list.find('Bert')).to eql(1)
+      list.prepend('Hera')
+      list.pop
+      list.prepend('Fathi')
+      expect(list.find('Hera')).to eql(1)
+    end
+
+    it 'returns nil if the value passed does not match' do
+      expect(list.find('Norbert')).to eql(nil)
+    end
+  end
+
+  describe '#to_s' do
+    list = LinkedList.new
+    list.append('Miguel')
+    list.append('Michele')
+    it 'returns a chained list of all the elements inside of the list' do
+      expect(list.to_s).to eql('( Miguel ) => ( Michele ) => ( null )')
+    end
+  end
+
+  
 end
