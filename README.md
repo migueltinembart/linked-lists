@@ -20,3 +20,7 @@ Ruby doesnt implement it by itself, because arrays in ruby do not have an explic
 |head|returns the first element of the list|
 |tail|returns the last element of the list|
 |at(index)|returns the element at the given index of the list (Starts at 0)|
+|pop|returns the last element of the list and removes it from the list|
+|contains?(value)|returns true if value is found inside of list data|
+|find(value)|returns the index of the element passed|
+|to_s|returns a string representation of the linked list|
