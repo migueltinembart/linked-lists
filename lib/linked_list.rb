@@ -15,7 +15,6 @@ class LinkedList
   end
 
   ##
-  # #append(value)
   # adds an element to the end of the list
   def append(value)
     new_node = Node.new(value)
@@ -29,7 +28,6 @@ class LinkedList
   end
 
   ##
-  # #prepend(value)
   # adds element add the beginning of the list
   def prepend(value)
     next_element = @head
@@ -37,7 +35,6 @@ class LinkedList
   end
 
   ##
-  # #size
   # returns the size of the list
   def size
     count = 0
@@ -59,6 +56,7 @@ class LinkedList
       pointer = pointer.next_node
       counter += 1
     end
+    pointer = nil if index >= size
     pointer
   end
 
@@ -108,5 +106,33 @@ class LinkedList
       pointer = pointer.next_node
     end
     string
+  end
+
+  ##
+  # inserts new element at specified index
+  def insert_at(value, index)
+    return nil if index > size
+    return nil if index.negative?
+
+    new_node = Node.new(value, at(index))
+    at(index - 1).next_node = new_node
+    @head = new_node if index.zero?
+    @tail = new_node.next_node if index == size
+  end
+
+  ##
+  # removes the item at the index
+  def remove_at(index)
+    result = nil
+    if index.zero?
+      result = @head
+      @head = head.next_node
+      return result
+    end
+    index = size + index if index.negative?
+
+    result = at(index)
+    at(index - 1).next_node = at(index).next_node
+    result.data
   end
 end
